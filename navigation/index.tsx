@@ -11,12 +11,10 @@ import NotFoundScreen from '../screens/NotFoundScreen';
 import QrScannerScreen from '../screens/QRScannerScreen';
 import QRListScreen from '../screens/QRListScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
-import LinkingConfiguration from './LinkingConfiguration';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
 	return (
 		<NavigationContainer
-			linking={LinkingConfiguration}
 			theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
 			<RootNavigator />
 		</NavigationContainer>

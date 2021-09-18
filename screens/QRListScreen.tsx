@@ -87,40 +87,6 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		width: Dimensions.get('screen').width,
 	},
-	title: {
-		fontSize: 20,
-		fontWeight: 'bold',
-	},
-	separator: {
-		marginVertical: 30,
-		height: 1,
-		width: '80%',
-	},
-	cardContainer: {
-		padding: 10,
-		margin: 10,
-		shadowOffset: { width: 0, height: 2 },
-		shadowColor: '#000',
-		shadowRadius: 8,
-		shadowOpacity: 0.3,
-		elevation: 8,
-		borderRadius: 8,
-		minHeight: 50,
-		justifyContent: 'center',
-	},
-	qrText: {},
-	chevron: {
-		width: 30,
-		height: 30,
-	},
-	trash: {
-		width: 30,
-		height: 30,
-	},
-	chevronContainer: {
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
 	input: {
 		height: 40,
 		margin: 12,
