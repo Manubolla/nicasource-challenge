@@ -16,4 +16,7 @@
 * Open a terminal and run npm install
 * Run ```npm run start``` on the console while being in this directory.
 * Go to metro server and Scan QR with Expo GO.
-* Check my awesome App and email me to manubolla17@gmail.com 😉
+* When the app is ready allow camera access so you can scan some QR Strings.
+* I advice to use https://www.qr-code-generator.com/. Go to string, type some random words and wait for the QR to be ready.
+* Scan your new QR and have some fun using my App!
+* Email me your review to manubolla17@gmail.com 😉
