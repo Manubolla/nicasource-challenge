@@ -5,7 +5,7 @@
 - [x] Create bottom bar with two screens ( Read QR - QR List)
 - [x] Add redux so you can handle decoded QR string
 - [x] Read QR
-- [x] List decoded QR iwth input to filter data.
+- [x] List decoded QR with input to filter data.
 - [ ] EXTRAS: Unit Test - ESLINT
 
 ```PERSONAL EXTRAS: Select items in the list and delete them```
