@@ -39,7 +39,16 @@ const QRListScreen = () => {
 	}, [QRList]);
 	return (
 		<SafeAreaView style={styles.container}>
-			<TextInput ref={textInputRef} onChangeText={handleChange} style={styles.input} />
+			<TextInput
+				ref={textInputRef}
+				placeholder={data.length == 0 ? 'No list to filter' : 'Filter list'}
+				onChangeText={handleChange}
+				style={[
+					styles.input,
+					data.length == 0 && { backgroundColor: '#F3F1F5', borderColor: '#C9CCD5' },
+				]}
+				editable={data.length !== 0}
+			/>
 			<View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
 				<Button title={'Delete items'} disabled={!deleteMode} onPress={handleDelete} />
 				<Button

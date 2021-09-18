@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { Text, View, StyleSheet, Button, Alert } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { RootTabScreenProps } from '../types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,11 +12,12 @@ const QRScannerScreen = ({ navigation }: RootTabScreenProps<'QRScannerScreen'>) 
 	const [scanned, setScanned] = useState(false);
 	const dispatch = useDispatch();
 
+	const askPermission = async () => {
+		const { status } = await BarCodeScanner.requestPermissionsAsync();
+		setHasPermission(status === 'granted');
+	};
 	useEffect(() => {
-		(async () => {
-			const { status } = await BarCodeScanner.requestPermissionsAsync();
-			setHasPermission(status === 'granted');
-		})();
+		askPermission();
 	}, []);
 
 	const handleBarCodeScanned = ({ type, data }: { type: any; data: string }) => {
@@ -29,18 +30,29 @@ const QRScannerScreen = ({ navigation }: RootTabScreenProps<'QRScannerScreen'>) 
 		});
 
 		if (isInList) {
-			alert('You already scanned that QR!!');
+			Alert.alert('Successful scan', 'You already scanned that QR!!', [{ text: 'OK' }]);
 			return;
 		}
 		dispatch(saveQRData(scannedQR));
-		alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+		Alert.alert('Successful scan', 'Barcode scanned!', [{ text: 'OK' }]);
 	};
 
 	if (hasPermission === null) {
-		return <Text>Requesting for camera permission</Text>;
+		return (
+			<View style={styles.container}>
+				<Text>Requesting for camera permission</Text>
+			</View>
+		);
 	}
 	if (hasPermission === false) {
-		return <Text>No access to camera</Text>;
+		return (
+			<View style={styles.container}>
+				<Text style={{ paddingHorizontal: 20, alignItems: 'center' }}>
+					No access to camera. If you want to use this app you need to give us permission through
+					your mobile configuration.
+				</Text>
+			</View>
+		);
 	}
 
 	return (
