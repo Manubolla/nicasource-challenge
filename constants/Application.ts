@@ -1,0 +1,5 @@
+export const SAVE_QR_DATA = 'SAVE_QR_DATA';
+export const DELETE_QR_DATA = 'DELETE_QR_DATA';
+export const CLEAN_QR_LIST = 'CLEAN_QR_LIST';
+export const ADD_SELECTED_ITEM = 'ADD_SELECTED_ITEM';
+export const REMOVE_SELECTED_ITEM = "REMOVE_SELECTED_ITEM"
