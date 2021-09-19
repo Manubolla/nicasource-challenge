@@ -1,5 +1,6 @@
 import {
 	ADD_SELECTED_ITEM,
+	CLEAN_DELETE_LIST,
 	CLEAN_QR_LIST,
 	DELETE_QR_DATA,
 	REMOVE_SELECTED_ITEM,
@@ -22,3 +23,6 @@ export const addSelectedItem = (value: QRType) => {
 export const removeSelectedItem = (value: QRType) => {
 	return { type: REMOVE_SELECTED_ITEM, value };
 };
+export const cleanDeleteList = () => {
+	return {type: CLEAN_DELETE_LIST}
+}

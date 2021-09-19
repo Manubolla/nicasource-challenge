@@ -1,5 +1,6 @@
 import {
 	ADD_SELECTED_ITEM,
+	CLEAN_DELETE_LIST,
 	CLEAN_QR_LIST,
 	DELETE_QR_DATA,
 	REMOVE_SELECTED_ITEM,
@@ -21,6 +22,8 @@ const applicationReducer = (
 			return { ...state, QRList: [], toDeleteList: [] };
 		case SAVE_QR_DATA:
 			return { ...state, QRList: [...state.QRList, { ...action.value }] };
+		case CLEAN_DELETE_LIST:
+			return { ...state, toDeleteList: [] };
 		case DELETE_QR_DATA: {
 			if (!state.QRList || !state.toDeleteList) return { ...state, QRList: [] };
 			if (state.toDeleteList.length == 0 || state.QRList.length == 0)

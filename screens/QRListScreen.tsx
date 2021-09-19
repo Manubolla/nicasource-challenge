@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FlatList, StyleSheet, Dimensions, Button, View, TextInput, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteQRData } from '../actions/application.actions';
+import { cleanDeleteList, deleteQRData } from '../actions/application.actions';
 import Card from '../components/Card';
 import { Application, QRType } from '../types/Application';
 
@@ -31,6 +31,10 @@ const QRListScreen = () => {
 		}
 		return;
 	};
+	const handleDeleteMode = () => {
+		dispatch(cleanDeleteList());
+		setDeleteMode((prevState) => !prevState);
+	};
 	useEffect(() => {
 		setData(QRList);
 	}, [QRList]);
@@ -49,7 +53,7 @@ const QRListScreen = () => {
 				<Button title={'Delete items'} disabled={!deleteMode} onPress={handleDelete} />
 				<Button
 					title={deleteMode ? 'Cancel select' : 'Select'}
-					onPress={() => setDeleteMode((prevState) => !prevState)}
+					onPress={handleDeleteMode}
 					disabled={QRList.length == 0}
 				/>
 			</View>
